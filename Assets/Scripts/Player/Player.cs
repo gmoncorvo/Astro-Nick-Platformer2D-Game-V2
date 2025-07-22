@@ -12,8 +12,10 @@ public class Player : MonoBehaviour
     [Header("Setup")]
     public SOPlayerSetup soPlayerSetup;
 
-    public Animator animator;  
+    //public Animator animator;  
     private float _currentSpeed;
+
+    private Animator _currentPlayer;
 
 
     private void Awake()
@@ -22,12 +24,14 @@ public class Player : MonoBehaviour
         {
             healthBase.OnKill += OnPlayerKill;
         }
+
+        _currentPlayer = Instantiate(soPlayerSetup.player, transform);
     }
 
     private void OnPlayerKill()
     {
         healthBase.OnKill -= OnPlayerKill;
-        animator.SetTrigger(soPlayerSetup.triggerDeath);
+        _currentPlayer.SetTrigger(soPlayerSetup.triggerDeath);
     }
 
     private void Update()
@@ -41,12 +45,12 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             _currentSpeed = soPlayerSetup.speedRun;
-            animator.speed = 1.5f;
+            _currentPlayer.speed = 1.5f;
         }
         else
         {
             _currentSpeed = soPlayerSetup.speed;
-            animator.speed = 1;
+            _currentPlayer.speed = 1;
         }
 
         if (Input.GetKey(KeyCode.D))
@@ -57,7 +61,7 @@ public class Player : MonoBehaviour
             {
                 myRigidBody.transform.DOScaleX(1, soPlayerSetup.playerSwapDuration);
             }
-            animator.SetBool(soPlayerSetup.boolRun, true);
+            _currentPlayer.SetBool(soPlayerSetup.boolRun, true);
         }
         else if (Input.GetKey(KeyCode.A))
         {
@@ -67,11 +71,11 @@ public class Player : MonoBehaviour
             {
                 myRigidBody.transform.DOScaleX(-1, soPlayerSetup.playerSwapDuration);
             }
-            animator.SetBool(soPlayerSetup.boolRun, true);
+            _currentPlayer.SetBool(soPlayerSetup.boolRun, true);
         }
         else
         {
-            animator.SetBool(soPlayerSetup.boolRun, false);
+            _currentPlayer.SetBool(soPlayerSetup.boolRun, false);
         }
 
         if (myRigidBody.velocity.x > 0f)
