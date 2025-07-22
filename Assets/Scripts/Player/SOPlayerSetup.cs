@@ -2,11 +2,13 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 [CreateAssetMenu]
 public class SOPlayerSetup : ScriptableObject
 {
+    public Animator player;
+    public SOString soStringName;
+
     [Header("Player Stats")]
     public Vector2 friction = new Vector2(-0.1f, 0);
     public float speed;
