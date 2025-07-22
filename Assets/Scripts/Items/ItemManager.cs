@@ -9,6 +9,7 @@ public class ItemManager : Singleton<ItemManager>
 {
     public SOInt coins;
     public TextMeshProUGUI uiTextCoins;
+    public TextMeshProUGUI uiTextGreenCoins;
 
     private void Start()
     {
@@ -17,18 +18,26 @@ public class ItemManager : Singleton<ItemManager>
 
     private void Reset()
     {
-        coins.value = 0;
+        coins.coins = 0;
+        coins.greenCoins = 0;
         UpdateUI();
     }
 
     public void AddCoins(int amount = 1)
     {
-        coins.value += amount;
+        coins.coins += amount;
+        UpdateUI();
+    }
+
+    public void AddGreenCoins(int amount = 1)
+    {
+        coins.greenCoins += amount;
         UpdateUI();
     }
 
     private void UpdateUI()
     {
-        UIInGameManager.UpdateTextCoins(coins.value.ToString());
+        //UIInGameManager.UpdateTextCoins(coins.coins.ToString());
+        //UIInGameManager.UpdateTextreenCoins(coins.greenCoins.ToString());
     }
 }

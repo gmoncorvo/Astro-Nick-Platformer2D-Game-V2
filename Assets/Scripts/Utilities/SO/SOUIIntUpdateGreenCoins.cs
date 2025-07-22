@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class SOUIIntUpdate : MonoBehaviour
+public class SOUIIntUpdateGreenCoins : MonoBehaviour
 {
-    public SOInt soInt;
+    public SOInt coins;
     public TextMeshProUGUI uiTextValue;
 
     private void Start()
     {
-        uiTextValue.text = soInt.value.ToString();
+        
     }
 
     private void Update()
-    {
-        uiTextValue.text = soInt.value.ToString();
+    {        
+        uiTextValue.text = coins.greenCoins.ToString();
     }
 
 }
