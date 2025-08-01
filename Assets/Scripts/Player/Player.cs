@@ -123,7 +123,8 @@ public class Player : MonoBehaviour
 
     private void PlayJumpVFX()
     {
-        if (jumpVFX != null) jumpVFX.Play();
+        //VFXManager.Instance.PlayVFXByType(VFXManager.VFXType.Jump, transform.position);
+       if (jumpVFX != null) jumpVFX.Play();
     }
 
     private void HandleScaleJump()
