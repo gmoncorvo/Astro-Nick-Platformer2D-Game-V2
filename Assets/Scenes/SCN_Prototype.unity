@@ -1308,8 +1308,7 @@ PrefabInstance:
       propertyPath: CollisionModule.m_Planes.Array.data[0]
       value: 
       objectReference: {fileID: 388126265}
-    m_RemovedComponents:
-    - {fileID: 6281337202940035338, guid: 59d03303dbeac51498a3bfef7239291c, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -6889398908428529550, guid: 59d03303dbeac51498a3bfef7239291c, type: 3}
     m_AddedGameObjects: []
@@ -7144,6 +7143,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compareTag: Player
   particleSystem: {fileID: 322624804}
+  timeToHide: 3
+  graphicItem: {fileID: 1624399533}
+  audioSource: {fileID: 1309571323}
 --- !u!1 &757861534
 GameObject:
   m_ObjectHideFlags: 0
@@ -9004,6 +9006,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!82 &1309571323 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7985094840940774718, guid: 59d03303dbeac51498a3bfef7239291c, type: 3}
+  m_PrefabInstance: {fileID: 373253389}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1322308093 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2735351680716938426, guid: 3e64bf648e7b81a43ba02fc4f95b267a, type: 3}
@@ -9784,6 +9791,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1624399533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2670084176658057523, guid: 59d03303dbeac51498a3bfef7239291c, type: 3}
+  m_PrefabInstance: {fileID: 373253389}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1631854485
 GameObject:
   m_ObjectHideFlags: 0
