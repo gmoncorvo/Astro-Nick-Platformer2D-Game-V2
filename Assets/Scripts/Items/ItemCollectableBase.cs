@@ -6,10 +6,15 @@ public class ItemCollectableBase : MonoBehaviour
 {
     public string compareTag = "Player";
     public ParticleSystem particleSystem;
+    public float timeToHide = 3;
+    public GameObject graphicItem;
+
+    [Header("Sounds")]
+    public AudioSource audioSource;
    
     private void Awake()
     {
-        if (particleSystem != null) particleSystem.transform.SetParent(null);
+        //if (particleSystem != null) particleSystem.transform.SetParent(null);
     }
 
 
@@ -23,8 +28,14 @@ public class ItemCollectableBase : MonoBehaviour
 
     protected virtual void Collect()
     {
-       gameObject.SetActive(false);
-       OnCollected();
+        if (graphicItem != null) graphicItem.SetActive(false);
+        Invoke("HideObject", timeToHide);
+        OnCollected();
+    }
+
+    private void HideObject ()
+    {
+        gameObject.SetActive(false);
     }
 
         protected virtual void OnCollected()
@@ -33,5 +44,10 @@ public class ItemCollectableBase : MonoBehaviour
         {
             particleSystem.Play();
         }
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
+        
     }
 }
